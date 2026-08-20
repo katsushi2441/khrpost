@@ -1,0 +1,39 @@
+<?php
+/**
+ * Kurage HR Post 設定ファイル（このファイルを khrpost_config.php にコピーして使う）
+ * 実際のパスワードは絶対にリポジトリへ入れないこと。
+ */
+
+// 画面表示
+define('KHP_TITLE', 'Kurage HR Post');
+define('KHP_BRAND_COLOR', '#0089a1');
+
+// 管理者ログイン（どちらか一方でよい。本番は HASH を推奨）
+//   ハッシュの作り方: php -r "echo password_hash('パスワード', PASSWORD_DEFAULT);"
+define('KHP_PASSWORD', 'change-me');
+define('KHP_PASSWORD_HASH', '');
+
+// 担当者・上長の共通ログインパスワード（社員コード＋このパスワードでログイン）
+define('KHP_STAFF_PASSWORD', '');
+
+
+// 社員マスタの置き場所（必須）。employees.json のあるディレクトリを指定する。
+// khrpost は社員を持たない。誰がいるかは会社の情報で、二重に持つと必ずズレるため。
+//   - Kurage Vibe Groupware Core（kvgwc）を使う → その kvgwc_data のパスを指定するだけ
+//   - kvgwc を使わない → 下の形式の JSON を自分で用意して、そのディレクトリを指定する
+//     {"employees":[{"id":"e1","no":"E001","name":"山田 太郎","status":"active"}]}
+//     id=社員を一意に識別する文字列(変えないこと) / no=担当者ログインのID / status=active以外はログイン不可
+define('KHP_EMPLOYEES_DIR', '');
+
+
+// 等級の変換表（この値以上ならその等級。下回れば D）
+define('KHP_GRADE_TABLE', 'S:110,A:100,B:85,C:70');
+
+// 達成率の上限（%）
+define('KHP_RATE_CAP', 120);
+
+// デモモード（true だとデータが定期初期化される想定の表示になる）
+define('KHP_DEMO', false);
+
+// データ保存先（Web公開ディレクトリの外に置ければなお良い）
+define('KHP_DATA_DIR', __DIR__ . '/khrpost_data');

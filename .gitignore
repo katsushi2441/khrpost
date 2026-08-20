@@ -1,0 +1,5 @@
+public/khrpost_config.php
+public/khrpost_data/
+demo/khrpost_data/
+.env
+outputs/
