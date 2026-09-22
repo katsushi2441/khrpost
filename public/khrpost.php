@@ -446,7 +446,7 @@ function khpFill(btn){
   var f=card.querySelector("[data-f]");
   if(f){ f.focus(); }
 }
-</script></body></html>';
+</script>' . ((($_SERVER['HTTP_HOST'] ?? '') === 'proto.exbridge.jp') ? '<p style="text-align:center;font-size:13px;margin:14px 0;color:#5d6b7a">これはデモです。<a href="https://kappstore.exbridge.jp/app.php?id=56bf3ddd46b5a457&amp;ref=khrpost" target="_blank" rel="noopener">この製品をオンプレミスで導入する（商品ページ）</a></p>' : '') . '</body></html>';
 }
 
 function khp_section($title, $count = null) {
